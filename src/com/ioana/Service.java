@@ -28,7 +28,6 @@ public class Service {
 
     public Map<Product, Integer> readOrder() {
       //  List<Product> catalog = generateProducts();
-        Cart cart = new Cart();
 
         List<Product> catalog = new ArrayList<>();
         Product purcari = new Wine("Purcari", 35.0, 100, 10);
@@ -82,16 +81,13 @@ public class Service {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (addMoreString != null) {
-                addMore = addMoreString.equals("yes");
-            }
-            cart.setProducts(productsInCart);
+            addMore = "yes".equals(addMoreString);
         }
 
-        return cart.getProducts();
+        return productsInCart;
     }
 
-    public int calcTotalQuantity(Map<Product, Integer> products) {
+    private int calcTotalQuantity(Map<Product, Integer> products) {
         int totalQty = 0;
         for (int i : products.values()) {
             totalQty = totalQty + i;

@@ -5,7 +5,7 @@ public class Wine extends Product {
     private int age;
 
     public Wine(String name, Double price, Integer stock, Integer age) {
-        super(name,price,stock);
+        super(name, price, stock);
         this.age = age;
     }
 
